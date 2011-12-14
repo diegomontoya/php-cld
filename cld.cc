@@ -65,7 +65,7 @@ ZEND_BEGIN_ARG_INFO(arginfo_cld_detector_setEncodingHint, 1)
 	ZEND_ARG_INFO(0, encodingHint)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_INFO_EX(arginfo_cld_detector_detectLanguage, 0, 0, 1)
+ZEND_BEGIN_ARG_INFO_EX(arginfo_cld_detector_detect, 0, 0, 1)
 	ZEND_ARG_INFO(0, text)
 	ZEND_ARG_INFO(0, isPlainText)
 ZEND_END_ARG_INFO()
@@ -93,7 +93,7 @@ static zend_function_entry cld_detector_methods[] = {
 	PHP_ME(cld_detector, getLanguageHint,				arginfo_cld_detector_get,							ZEND_ACC_PUBLIC)
 	PHP_ME(cld_detector, setEncodingHint,				arginfo_cld_detector_setEncodingHint,				ZEND_ACC_PUBLIC)
 	PHP_ME(cld_detector, getEncodingHint,				arginfo_cld_detector_get,							ZEND_ACC_PUBLIC)
-	PHP_ME(cld_detector, detectLanguage,				arginfo_cld_detector_detectLanguage,				ZEND_ACC_PUBLIC)
+	PHP_ME(cld_detector, detect,				arginfo_cld_detector_detect,				ZEND_ACC_PUBLIC)
 	{NULL, NULL, NULL}
 };
 
@@ -470,7 +470,7 @@ PHP_METHOD(cld_detector, getEncodingHint)
 	RETVAL_ZVAL(hint, 1, 0);
 }
 
-PHP_METHOD(cld_detector, detectLanguage)
+PHP_METHOD(cld_detector, detect)
 {
 	zval *obj,
 		*val;
